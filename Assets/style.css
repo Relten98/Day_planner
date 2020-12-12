@@ -56,12 +56,19 @@ textarea{
   color: white;
 }
 
-.currentDay {
-  color: salmon;
-  margin-top: 24px;
-  padding-top: 2%;
+#currentDay {
+  color: black;
   text-align: center;
+  margin: 5;
+  margin-top: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  background: beige;
+  border: 3px dotted black;
+  border-radius: 55px;
   font-size: 32px;
+  font-weight: bold;
 }
 
 .present {
