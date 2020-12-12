@@ -5,6 +5,7 @@ html {
 body {
 font-family: 'Poppins', sans-serif;
   font-size: 16px;
+  background: #426062;
   line-height: 1;
 }
 
@@ -13,10 +14,10 @@ h1 {
 }
 
 textarea{
-  background: transparent;
+  background: #F8D173;
   border: none;
   resize: none;
-  color: #000000;
+  color: black;
   border-left: 1px solid black;
   padding: 10px;
 }
@@ -56,10 +57,11 @@ textarea{
 }
 
 .currentDay {
-  color: #fa8072;
-  margin-top: 11px;
+  color: salmon;
+  margin-top: 24px;
+  padding-top: 2%;
   text-align: center;
-  font-size: 24px;
+  font-size: 32px;
 }
 
 .present {
@@ -76,8 +78,8 @@ textarea{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06AED5;
-  color: white;
+  background-color: salmon;
+  color: black;
 }
 
 .saveBtn i:hover {
