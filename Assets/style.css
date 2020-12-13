@@ -15,6 +15,8 @@ h1 {
 
 textarea{
   background: #F8D173;
+  width: 100%;
+  height: 94%;
   border: none;
   resize: none;
   color: black;
@@ -42,22 +44,30 @@ textarea{
 .row {
   white-space: pre-wrap;
   height: 60px;
-  width: 100%;
+  width: 75%;
   background: #ECE091;
-  border-top-right-radius: 75px;
-  border-bottom-right-radius: 75px;
-  border-top: 6px solid black;;
+  border-radius: 23px;
+  border-top: 6px solid black;
+  border-bottom: 6px solid black;
 }
 
 .hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: 'Spectral', serif;
+  border-right: 1px solid black;
+  border: 3px solid black;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: #CB6F5A;
+  color: black;
 }
 
 .past {
   background-color: salmon;
-  color: white;
+  color: black;
 }
 
 #currentDay {
@@ -76,12 +86,14 @@ textarea{
 }
 
 .present {
-  background-color: #BAC79F;
-  color: white;
+  background-color: #F8D173;
+  color: black;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
 }
 
 .future {
-  background-color: #7FB4B1;
+  background-color: #BAC79F;
   color: white;
 }
 
@@ -94,7 +106,8 @@ textarea{
   color: black;
 }
 
-.saveBtn i:hover {
+.saveBtn:hover {
   font-size: 20px;
+  background-color: #7FB4B1;
   transition: all .3s ease-in-out;
 }
