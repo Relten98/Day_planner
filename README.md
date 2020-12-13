@@ -15,9 +15,9 @@ A "slick" interface reminiscent of the 50s and 60s.
 
     > Lovely muted color pallet
 
-![Screenshot1]()
+![Screenshot1](https://github.com/Relten98/Day_planner/blob/main/assets/planner_screenshot_%20(2).png)
 
-![Screenshot2]()
+![Screenshot2](https://github.com/Relten98/Day_planner/blob/main/assets/planner_screenshot_%20(1).png)
 
 
 
