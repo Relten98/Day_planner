@@ -179,7 +179,7 @@ function showReminders() {
 
 
 // sets any existing localStorage data to the view if it exists
-function onStart() {
+function savedData() {
     var storedDay = JSON.parse(localStorage.getItem("dayPlan"));
 
     if (storedDay) {
@@ -236,20 +236,20 @@ dayPlan.forEach(function (thisHour) {
 
     // creates save button
     var saveButton = $("<i class='far fa-save fa-lg'></i>")
-    var planSaver = $("<button>")
+    var savePlan = $("<button>")
         .attr({
             "class": "col-md-1 saveBtn"
         });
-    planSaver.append(saveButton);
-    hourRow.append(hourField, hourPlan, planSaver);
+    savePlan.append(saveButton);
+    hourRow.append(hourField, hourPlan, savePlan);
 })
 
 //// kicks this whole thing off.
-onStart();
+savedData();
 
-$(".saveBtn").on("click", function (event) {
+$(".saveBtn").on("click", function(event) {
     event.preventDefault();
-    var savedData = this.sessionstorage
+    var storage = dayPlan.thisHour.reminder.localStorage;
     rememberReminders();
     showReminders();
 })
