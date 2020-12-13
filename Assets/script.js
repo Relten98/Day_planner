@@ -1,10 +1,10 @@
-/// I love arrays, lets make it modular. aLSO 
+/// I love arrays, lets make it modular. 
 
 /// These define meridiem, used later on.
 ///var meridiemvalues = ["AM", "PM"]
 
 ///var meridiem = []
-/// Who needs meridiem?
+/// Who needs meridiem? I don't lmao. I'm hanging onto this if I want to automate it. But for now, manually assigning the value will do the trick.
 
 /// This array defines the time slots, to be built further down the line.
 let dayPlan = [
@@ -179,15 +179,13 @@ function showReminders() {
 
 
 // sets any existing localStorage data to the view if it exists
-function savedData() {
+function onStart() {
     var storedDay = JSON.parse(localStorage.getItem("dayPlan"));
 
     if (storedDay) {
         dayPlan = storedDay;
     };
 
-    let memorizer = $(this).siblings(.description).children(.future).attr(.id);
-    console.log(memorizer)
     rememberReminders();
     showReminders();
 }
@@ -236,20 +234,22 @@ dayPlan.forEach(function (thisHour) {
         })
     }
 
-
     // creates save button
     var saveButton = $("<i class='far fa-save fa-lg'></i>")
-    var savePlan = $("<button>")
+    var planSaver = $("<button>")
         .attr({
             "class": "col-md-1 saveBtn"
         });
-    savePlan.append(saveButton);
-    hourRow.append(hourField, hourPlan, savePlan);
+    planSaver.append(saveButton);
+    hourRow.append(hourField, hourPlan, planSaver);
 })
-savedData();
 
-$(.saveBtn).on(click, function (event) {
-    event.preventdefault()
+//// kicks this whole thing off.
+onStart();
+
+$(".saveBtn").on("click", function (event) {
+    event.preventDefault();
+    var savedData = this.sessionstorage
     rememberReminders();
     showReminders();
 })
