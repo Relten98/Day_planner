@@ -7,7 +7,12 @@ Features
 
 A type in what you want to do for the day in the blocks and save the information.
 
-A "slick" interface
+Time card updates depending on the time.
+
+A "slick" interface reminiscent of the 50s and 60s.
+    > Buttons change color and animate when the cursor hovers over it.
+    > Lovely muted color pallet
+
 
 
 
