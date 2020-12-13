@@ -3,93 +3,114 @@
 let dayPlan = [
 {
     id: "0",
-    time: "05",
-    hour: "05",
-    merridium: "am",
+    time: 5,
+    hour: "5:00",
+    stamp: "",
     reminder: "",
 },
 {
     id: "1",
-    time: "06",
-    hour: "06",
-    merridium: "am",
+    time: 6,
+    hour: "6:00",
+    stamp: "",
     reminder: "",
 },
 {
     id: "2",
-    time: "07",
-    hour: "07",
-    merridium: "am",
+    time: 7,
+    hour: "7:00 ",
+    stamp: "",
     reminder: "",
 },
 {
     id: "3",
-    time: "08",
-    hour: "08",
-    merridium: "am",
+    time: 8,
+    hour: "8:00",
+    stamp: "",
     reminder: "",
 },
 {
     id: "4",
-    time: "09",
-    hour: "09",
-    merridium: "am",
+    time: 9,
+    hour: "9:00 ",
+    stamp: "",
     reminder: "",
 },
 {
     id: "5",
-    time: "10",
-    hour: "10",
-    merridium: "am",
+    hour: 10,
+    time: "10:00 ",
+    stamp: "",
     reminder: "",
 },
 {
     id: "6",
-    time: "11",
-    hour: "11",
-    merridium: "am",
+    time: 11,
+    hour: "11:00 ",
+    stamp: "",
     reminder: "",
 },
 {
     id: "7",
-    time: "12",
-    hour: "12",
-    merridium: "pm",
+    time: 12,
+    hour: "12:00 ",
+    stamp: "",
     reminder: "",
 },
 {
     id: "8",
-    time: "1",
-    hour: "1",
-    merridium: "pm",
+    time: 13,
+    hour: "1:00 ",
+    stamp: "",
     reminder: "",
 },
 {
     id: "9",
-    time: "2",
-    hour: "2",
-    merridium: "pm",
+    time: 14,
+    hour: "2:00 ",
+    stamp: "",
     reminder: "",
 },
 {
     id: "10",
-    time: "3",
-    hour: "3",
-    merridium: "pm",
+    time: 15,
+    hour: "3:00 ",
+    stamp: "",
     reminder: "",
 },
 {
     id: "11",
-    time: "4",
-    hour: "4",
-    merridium: "pm",
+    time: 16,
+    hour: "4:00 ",
+    stamp: "",
+    reminder: "",
+},
+{
+    id: "12",
+    time: 17,
+    hour: "5:00 ",
+    stamp: "",
+    reminder: "",
+},
+{
+    id: "13",
+    time: 18,
+    hour: "6:00 ",
+    stamp: "",
+    reminder: "",
+},
+{
+    id: "14",
+    time: 19,
+    hour: "7:00 ",
+    stamp: "",
     reminder: "",
 },
 {
     id: "11",
-    time: "5",
-    hour: "5",
-    merridium: "pm",
+    time: 20,
+    hour: "5:00 ",
+    stamp: "",
     reminder: "",
 }
 ]
@@ -111,6 +132,7 @@ function showReminders() {
     })
 }
 
+
 // sets any existing localStorage data to the view if it exists
 function savedData() {
     var storedDay = JSON.parse(localStorage.getItem("dayPlan"));
@@ -118,10 +140,27 @@ function savedData() {
     if (storedDay) {
         dayPlan = storedDay;
     }
-
+    headerDate();
     rememberReminders();
     showReminders();
 }
+
+/// Timeblock data
+
+
+// Alows meridiem to be determined based on time variable
+var meridiem = [ "AM", "PM"]
+
+function setmeridiem() {
+    if (dayPlan.time <= 12) {
+        "stamp": "PM",
+    }
+  else if (dayPlan.time >= 12) {
+        "stamp": "AM",
+    }
+}
+
+
 
 dayPlan.forEach(function(thisHour) {
     // creates timeblocks row
@@ -132,7 +171,7 @@ dayPlan.forEach(function(thisHour) {
 
     // creates time field
     var hourField = $("<div>")
-        .text(`${thisHour.hour}${thisHour.meridiem}`)
+        .text(`${thisHour.hour}${thisHour.stamp}`)
         .attr({
             "class": "col-md-2 hour"
     });
@@ -145,19 +184,22 @@ dayPlan.forEach(function(thisHour) {
     var planData = $("<textarea>");
     hourPlan.append(planData);
     planData.attr("id", thisHour.id);
-    if (thisHour.time < moment().format("HH")) {
-        planData.attr ({
-            "class": "past", 
-        })
-    } else if (thisHour.time === moment().format("HH")) {
-        planData.attr({
-            "class": "present"
-        })
-    } else if (thisHour.time > moment().format("HH")) {
-        planData.attr({
-            "class": "future"
-        })
-    }
+if (thisHour.time < moment().format("HH")) {
+    planData.attr ({
+        "class": "past", 
+    })
+}
+else if (thisHour.time > moment().format("HH")) {
+    planData.attr ({
+        "class": "future", 
+    })
+}
+else if (thisHour.time = moment().format("HH")) {
+    planData.attr ({
+        "class": "present", 
+    })
+}
+
 
     // creates save button
     var saveButton = $("<i class='far fa-save fa-lg'></i>")
