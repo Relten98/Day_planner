@@ -1,116 +1,160 @@
-/// I love arrays, lets make it modular. goes from 5AM to 5PM (Sorry to those who work graveyard shifts)
-/// This array defines the time slots, to be built further down the line.
-var meridiem = []
+/// I love arrays, lets make it modular. aLSO 
 
+/// These define meridiem, used later on.
+///var meridiemvalues = ["AM", "PM"]
+
+///var meridiem = []
+/// Who needs meridiem?
+
+/// This array defines the time slots, to be built further down the line.
 let dayPlan = [
     {
         id: "0",
         time: 5,
-        hour: "5:00",
+        hour: "5:00 AM",
         reminder: "",
     },
     {
         id: "1",
         time: 6,
-        hour: "6:00",
+        hour: "6:00 AM",
         reminder: "",
     },
     {
         id: "2",
         time: 7,
-        hour: "7:00 ",
+        hour: "7:00 AM",
         reminder: "",
     },
     {
         id: "3",
         time: 8,
-        hour: "8:00",
+        hour: "8:00 AM",
         reminder: "",
     },
     {
         id: "4",
         time: 9,
-        hour: "9:00 ",
+        hour: "9:00 AM",
         reminder: "",
     },
     {
         id: "5",
-        hour: 10,
-        time: "10:00 ",
+        time: 10,
+        hour: "10:00 AM",
         reminder: "",
     },
     {
         id: "6",
         time: 11,
-        hour: "11:00 ",
+        hour: "11:00 AM",
         reminder: "",
     },
     {
         id: "7",
         time: 12,
-        hour: "12:00 ",
+        hour: "12:00 PM",
         reminder: "",
     },
     {
         id: "8",
         time: 13,
-        hour: "1:00 ",
+        hour: "1:00 PM",
         reminder: "",
     },
     {
         id: "9",
         time: 14,
-        hour: "2:00 ",
+        hour: "2:00 PM",
         reminder: "",
     },
     {
         id: "10",
         time: 15,
-        hour: "3:00 ",
+        hour: "3:00 PM",
         reminder: "",
     },
     {
         id: "11",
         time: 16,
-        hour: "4:00 ",
+        hour: "4:00 PM",
         reminder: "",
     },
     {
         id: "12",
         time: 17,
-        hour: "5:00 ",
+        hour: "5:00 PM",
         reminder: "",
     },
     {
         id: "13",
         time: 18,
-        hour: "6:00 ",
+        hour: "6:00 PM",
         reminder: "",
     },
     {
         id: "14",
         time: 19,
-        hour: "7:00 ",
+        hour: "7:00 PM",
         reminder: "",
     },
     {
-        id: "11",
+        id: "15",
         time: 20,
-        hour: "5:00 ",
+        hour: "8:00 PM",
+        reminder: "",
+    },
+    {
+        id: "16",
+        time: 21,
+        hour: "9:00 PM",
+        reminder: "",
+    },
+    {
+        id: "17",
+        time: 22,
+        hour: "10:00 PM",
+        reminder: "",
+    },
+    {
+        id: "18",
+        time: 23,
+        hour: "11:00 PM",
+        reminder: "",
+    },
+    {
+        id: "19",
+        time: 24,
+        hour: "12:00 AM",
+        reminder: "",
+    },
+    {
+        id: "20",
+        time: 1,
+        hour: "1:00 AM",
+        reminder: "",
+    },
+    {
+        id: "21",
+        time: 2,
+        hour: "2:00 AM",
+        reminder: "",
+    },
+    {
+        id: "22",
+        time: 3,
+        hour: "3:00 AM",
+        reminder: "",
+    },
+    {
+        id: "23",
+        time: 4,
+        hour: "4:00 AM",
         reminder: "",
     }
 ]
 
 // Alows meridiem to be determined based on time variable
-
-function setmeridiem() {
-    if (dayPlan.time <= 12) {
-       let meridiem = "AM"
-    }
-    else if (dayPlan.time <= 12) {
-        let meridiem = "PM"
-    }
-}
 
 /// Preps the day to be called later on.
 function headerDate() {
@@ -118,7 +162,9 @@ function headerDate() {
     $("#currentDay").text(currentHeaderDate);
 }
 headerDate();
-// saves data to localStorage
+
+
+// Saves data to localStorage
 function rememberReminders() {
     localStorage.setItem("dayPlan", JSON.stringify(dayPlan));
 }
@@ -141,7 +187,6 @@ function savedData() {
     headerDate();
     rememberReminders();
     showReminders();
-    setmeridiem();
 }
 
 /// Timeblock data
@@ -152,11 +197,14 @@ dayPlan.forEach(function (thisHour) {
     var hourRow = $("<form>").attr({
         "class": "row"
     });
-    $(".container").append(hourRow);
 
+
+
+    $(".container").append(hourRow);
+ 
     // creates time field
     var hourField = $("<div>")
-        .text(`${thisHour.hour}${meridiem}`)
+        .text(`${thisHour.hour}`)
         .attr({
             "class": "col-md-2 hour"
         });
