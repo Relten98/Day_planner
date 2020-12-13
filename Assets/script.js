@@ -161,6 +161,7 @@ function headerDate() {
     var currentHeaderDate = moment().format('dddd, MMMM Do');
     $("#currentDay").text(currentHeaderDate);
 }
+
 headerDate();
 
 
@@ -183,8 +184,10 @@ function savedData() {
 
     if (storedDay) {
         dayPlan = storedDay;
-    }
-    headerDate();
+    };
+
+    let memorizer = $(this).siblings(.description).children(.future).attr(.id);
+    console.log(memorizer)
     rememberReminders();
     showReminders();
 }
@@ -201,7 +204,7 @@ dayPlan.forEach(function (thisHour) {
 
 
     $(".container").append(hourRow);
- 
+
     // creates time field
     var hourField = $("<div>")
         .text(`${thisHour.hour}`)
@@ -244,3 +247,9 @@ dayPlan.forEach(function (thisHour) {
     hourRow.append(hourField, hourPlan, savePlan);
 })
 savedData();
+
+$(.saveBtn).on(click, function (event) {
+    event.preventdefault()
+    rememberReminders();
+    showReminders();
+})
